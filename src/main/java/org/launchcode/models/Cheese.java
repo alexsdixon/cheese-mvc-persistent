@@ -1,12 +1,10 @@
 package org.launchcode.models;
 
-import javafx.scene.control.Menu;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.util.List;
-
 
 /**
  * Created by LaunchCode
