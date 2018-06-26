@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.validation.Valid;
 
@@ -43,9 +44,8 @@ public class CheeseController {
     }
 
     @RequestMapping(value = "add", method = RequestMethod.POST)
-    public String processAddCheeseForm(@ModelAttribute  @Valid Cheese newCheese,
-                                       @RequestParam int categoryId,
-                                       Errors errors, Model model) {
+    public String processAddCheeseForm(@ModelAttribute  @Valid Cheese newCheese, Errors errors,
+                                       @RequestParam int categoryId, Model model) {
 
         if (errors.hasErrors()) {
             model.addAttribute("title", "Add Cheese");
@@ -86,9 +86,8 @@ public class CheeseController {
 
     @RequestMapping(value = "edit/{cheeseId}", method = RequestMethod.POST)
     public String processEditForm(Model model, @PathVariable int cheeseId,
-                                  @ModelAttribute  @Valid Cheese newCheese,
-                                  @RequestParam int categoryId,
-                                  Errors errors) {
+                                  @ModelAttribute  @Valid Cheese newCheese, Errors errors,
+                                  @RequestParam int categoryId) {
 
         if (errors.hasErrors()) {
             model.addAttribute("title", "Add Cheese");
